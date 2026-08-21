@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Janie Beck | Interactive Math Learning Design</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --cream: #fffaf2;
+      --paper: #ffffff;
+      --navy: #183042;
+      --navy-soft: #29475d;
+      --teal: #2f9c95;
+      --teal-light: #dff4f1;
+      --coral: #ef7d6d;
+      --coral-light: #fde9e5;
+      --gold: #e6b84a;
+      --sage: #dfe9df;
+      --line: #d8e0e5;
+      --muted: #647786;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      line-height: 1.65;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .site-shell {
+      width: min(1160px, 92%);
+      margin: 0 auto;
+    }
+
+    /* NAV */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 250, 242, 0.95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      width: min(1160px, 92%);
+      min-height: 74px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--navy);
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .brand-dot {
+      color: var(--coral);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--navy-soft);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--teal);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 100px 0 85px;
+    }
+
+    .hero-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 58px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 14px 40px rgba(24, 48, 66, 0.08);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      top: -60px;
+      right: -40px;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: var(--coral-light);
+      border-radius: 50%;
+      bottom: -45px;
+      left: -35px;
+    }
+
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--teal-light);
+      color: var(--teal);
+      font-weight: 900;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 0.98;
+      letter-spacing: -2.5px;
+    }
+
+    .hero h1 span {
+      color: var(--coral);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 1.22rem;
+    }
+
+    .hero-actions {
+      position: relative;
+      z-index: 1;
+      margin-top: 32px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* BUTTONS */
+
+    .button {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 900;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--teal);
+      color: white;
+      box-shadow: 0 7px 18px rgba(47, 156, 149, 0.22);
+    }
+
+    .button-secondary {
+      background: white;
+      color: var(--navy);
+      border: 1px solid var(--line);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 78px 0;
+    }
+
+    .section-label {
+      color: var(--coral);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 40px;
+    }
+
+    /* PROJECT CARDS */
+
+    .projects-grid {
+      display: grid;
+      gap: 26px;
+    }
+
+    .project {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 34px;
+      box-shadow: 0 10px 28px rgba(24, 48, 66, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project:nth-child(1) {
+      border-top: 6px solid var(--coral);
+    }
+
+    .project:nth-child(2) {
+      border-top: 6px solid var(--teal);
+    }
+
+    .project:nth-child(3) {
+      border-top: 6px solid var(--gold);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .project-number {
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--muted);
+    }
+
+    .project h3 {
+      margin: 4px 0 0;
+      font-size: 2rem;
+      color: var(--navy);
+    }
+
+    .project-subtitle {
+      margin-top: 6px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .project-copy {
+      max-width: 860px;
+      color: var(--navy-soft);
+      margin: 20px 0;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 22px;
+    }
+
+    .tag {
+      background: var(--teal-light);
+      color: var(--teal);
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+
+    .project:nth-child(1) .tag {
+      background: var(--coral-light);
+      color: #b95347;
+    }
+
+    .project:nth-child(3) .tag {
+      background: #fff3cf;
+      color: #9a741b;
+    }
+
+    .design-note {
+      margin: 20px 0;
+      padding: 18px;
+      border-radius: 14px;
+      background: #f7fafb;
+      border-left: 4px solid var(--teal);
+      color: var(--navy-soft);
+    }
+
+    .project:nth-child(1) .design-note {
+      border-left-color: var(--coral);
+    }
+
+    .project:nth-child(3) .design-note {
+      border-left-color: var(--gold);
+    }
+
+    /* APPROACH */
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .approach-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px;
+    }
+
+    .approach-card h3 {
+      margin-top: 0;
+      color: var(--teal);
+    }
+
+    .approach-card p {
+      color: var(--navy-soft);
+      margin-bottom: 0;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .about-card,
+    .skills-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 30px;
+    }
+
+    .about-card p {
+      color: var(--navy-soft);
+    }
+
+    .skills-card h3 {
+      margin-top: 0;
+      color: var(--coral);
+    }
+
+    .skill-pill {
+      display: inline-block;
+      margin: 5px 5px 5px 0;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: var(--sage);
+      color: var(--navy);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 36px 0 50px;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+      .hero-card {
+        padding: 38px 24px;
+      }
+
+      .approach-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 0;
+      }
+    }
+  </style>
+
+</head>
+
+
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+    <div class="nav-inner">
+
+      <a class="brand" href="#top">
+        JANIE BECK<span class="brand-dot">.</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header id="top" class="hero">
+
+    <div class="site-shell">
+
+      <div class="hero-card">
+
+        <div class="eyebrow">
+          INTERACTIVE MATHEMATICS LEARNING DESIGN
+        </div>
+
+        <h1>
+          I design math experiences that learners can
+          <span>play with.</span>
+        </h1>
+
+        <p class="hero-copy">
+          I create interactive mathematical experiences that invite learners
+          to experiment, notice patterns, test ideas, and build understanding
+          through problem solving.
+        </p>
+
+        <div class="hero-actions">
+
+          <a class="button button-primary" href="#projects">
+            EXPLORE PROJECTS
+          </a>
+
+          <a class="button button-secondary" href="#about">
+            ABOUT MY WORK
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <div class="site-shell">
+
+      <div class="section-label">
+        SELECTED WORK
+      </div>
+
+      <h2 class="section-title">
+        Three ways to make mathematics interactive
+      </h2>
+
+      <p class="section-intro">
+        These projects span algebra, probability, and geometry while using
+        different interaction models, from direct manipulation and simulation
+        to visual investigation.
+      </p>
+
+
+      <div class="projects-grid">
+
+
+        <!-- FUNCTION FACTORY -->
+
+        <article class="project">
+
+          <div class="project-top">
+
+            <div>
+
+              <div class="project-number">
+                PROJECT 01
+              </div>
+
+              <h3>
+                Function Factory
+              </h3>
+
+              <div class="project-subtitle">
+                Quadratic transformations through guided discovery
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="project-copy">
+            A Desmos learning experience where learners manipulate visual
+            controls to discover how <strong>a</strong>, <strong>h</strong>,
+            and <strong>k</strong> transform a parabola. The experience moves
+            from exploration to prediction, combined transformations, a final
+            challenge, and mathematical explanation.
+          </p>
+
+          <div class="tags">
+            <span class="tag">DESMOS</span>
+            <span class="tag">ALGEBRA</span>
+            <span class="tag">DIRECT MANIPULATION</span>
+            <span class="tag">GUIDED DISCOVERY</span>
+          </div>
+
+          <div class="design-note">
+            <strong>Design focus:</strong>
+            Learners encounter each transformation through interaction before
+            formalizing the corresponding rule.
+          </div>
+
+          <a
+            class="button button-primary"
+            href="https://student.amplify.com/join/RYE6J9"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LAUNCH FUNCTION FACTORY
+          </a>
+
+        </article>
+
+
+        <!-- BEAT THE ODDS -->
+
+        <article class="project">
+
+          <div class="project-top">
+
+            <div>
+
+              <div class="project-number">
+                PROJECT 02
+              </div>
+
+              <h3>
+                Beat the Odds
+              </h3>
+
+              <div class="project-subtitle">
+                Probability, simulation, and expected value
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="project-copy">
+            Learners choose between competing probability machines, collect
+            their own experimental data, scale simulations from 10 to 10,000
+            trials, and investigate why winning more often does not necessarily
+            lead to the greatest expected payoff.
+          </p>
+
+          <div class="tags">
+            <span class="tag">JAVASCRIPT</span>
+            <span class="tag">PROBABILITY</span>
+            <span class="tag">SIMULATION</span>
+            <span class="tag">DECISION MAKING</span>
+          </div>
+
+          <div class="design-note">
+            <strong>Design focus:</strong>
+            The formal expected-value calculation is withheld until learners
+            have generated and interpreted enough evidence to need it.
+          </div>
+
+          <a
+            class="button button-primary"
+            href="https://janiebeck072-eng.github.io/beat-the-odds/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LAUNCH BEAT THE ODDS
+          </a>
+
+        </article>
+
+
+        <!-- SHAPE LAB -->
+
+        <article class="project">
+
+          <div class="project-top">
+
+            <div>
+
+              <div class="project-number">
+                PROJECT 03
+              </div>
+
+              <h3>
+                Shape Lab
+              </h3>
+
+              <div class="project-subtitle">
+                Geometry through visual investigation
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="project-copy">
+            Learners rebuild the triangle area formula through measurement,
+            cutting, direct manipulation, and formula verification. A draggable
+            vertex experiment makes the relationship between base, perpendicular
+            height, and area visible before the formula is formalized.
+          </p>
+
+          <div class="tags">
+            <span class="tag">JAVASCRIPT</span>
+            <span class="tag">GEOMETRY</span>
+            <span class="tag">VISUAL REASONING</span>
+            <span class="tag">DIRECT MANIPULATION</span>
+          </div>
+
+          <div class="design-note">
+            <strong>Design focus:</strong>
+            Learners verify the formula by testing multiple cases and trying
+            to break an incorrect rule rather than simply being told which
+            formula is correct.
+          </div>
+
+          <a
+            class="button button-primary"
+            href="https://janiebeck072-eng.github.io/shape-lab/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LAUNCH SHAPE LAB
+          </a>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- APPROACH -->
+
+  <section id="approach">
+
+    <div class="site-shell">
+
+      <div class="section-label">
+        LEARNING DESIGN APPROACH
+      </div>
+
+      <h2 class="section-title">
+        Interaction should reveal the mathematics.
+      </h2>
+
+      <p class="section-intro">
+        Across my work, I use interaction as a tool for thinking rather than
+        decoration. Each mechanic is designed to expose a relationship,
+        generate a question, or help learners test an idea.
+      </p>
+
+
+      <div class="approach-grid">
+
+        <div class="approach-card">
+          <h3>Explore Before Explain</h3>
+          <p>
+            Learners encounter a mathematical relationship through a problem,
+            visual, or interaction before receiving the formal rule.
+          </p>
+        </div>
+
+        <div class="approach-card">
+          <h3>Make Thinking Visible</h3>
+          <p>
+            Predictions, explanations, choices, and reflections reveal how
+            learners are reasoning rather than measuring only final answers.
+          </p>
+        </div>
+
+        <div class="approach-card">
+          <h3>Scaffold Toward Independence</h3>
+          <p>
+            Experiences begin with constrained exploration and gradually remove
+            supports as learners build confidence and transferable understanding.
+          </p>
+        </div>
+
+        <div class="approach-card">
+          <h3>Formalize After Discovery</h3>
+          <p>
+            Mathematical notation and formulas arrive after learners have
+            developed an intuitive need for them through evidence and pattern recognition.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="site-shell">
+
+      <div class="section-label">
+        ABOUT
+      </div>
+
+      <h2 class="section-title">
+        Mathematics educator and interactive learning designer
+      </h2>
+
+
+      <div class="about-grid">
+
+        <div class="about-card">
+
+          <p>
+            I am a National Board Certified mathematics educator with experience
+            designing and teaching Algebra, Math III, AP Precalculus, and
+            Precalculus learning experiences in secondary and early-college settings.
+          </p>
+
+          <p>
+            My work focuses on translating complex mathematical ideas into
+            approachable sequences of visual, interactive, and problem-driven
+            experiences.
+          </p>
+
+          <p>
+            I hold a B.S. in Physics with a minor in Mathematics and an M.Ed.
+            in Secondary Education.
+          </p>
+
+        </div>
+
+
+        <aside class="skills-card">
+
+          <h3>
+            Tools & Focus Areas
+          </h3>
+
+          <span class="skill-pill">Desmos</span>
+          <span class="skill-pill">HTML</span>
+          <span class="skill-pill">CSS</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">Interactive Math Content</span>
+          <span class="skill-pill">Visual Scaffolding</span>
+          <span class="skill-pill">Assessment Design</span>
+          <span class="skill-pill">Learner Data & Iteration</span>
+
+        </aside>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="site-shell footer-inner">
+
+      <div>
+        © 2026 Janie Beck
+      </div>
+
+      <div>
+        Interactive Mathematics Learning Design
+      </div>
+
+    </div>
+
+  </footer>
+
+
+</body>
+
+</html>
