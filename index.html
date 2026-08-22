@@ -474,6 +474,23 @@
       border-top-color: var(--teal);
     }
 
+
+.process-case{padding:86px 0;background:linear-gradient(180deg,#f4faf9,#fff)}
+.process-case .lede{max-width:850px;font-size:1.1rem;line-height:1.75;color:var(--navy-soft)}
+.process-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
+.process-flow div,.case-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px}
+.process-flow strong{display:block;color:var(--navy);margin-bottom:6px}
+.process-flow span,.case-card p{color:var(--navy-soft);line-height:1.65}
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin:24px 0}
+.case-card h3{color:var(--navy)}
+.case-label{font-size:.7rem;font-weight:900;letter-spacing:1.6px;text-transform:uppercase;color:var(--coral)}
+.artifact{margin-top:14px;padding:18px;border-radius:14px;background:#f5f9fa;border:1px solid #d6e2e7}
+.eq{padding:10px 12px;border-left:4px solid var(--teal);background:#eaf7f5;font-family:Georgia,serif;color:var(--navy)}
+.decision{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin:14px 0}
+.arrow{font-size:1.6rem;color:var(--coral);font-weight:900}
+.process-quote{margin:28px 0;padding:24px;border-left:5px solid var(--coral);background:#fff5f1;border-radius:0 16px 16px 0;color:var(--navy);line-height:1.7}
+@media(max-width:800px){.process-flow,.case-grid,.decision{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center}}
+
     /* EVIDENCE FROM PRACTICE */
 
     .evidence-grid {
@@ -689,7 +706,8 @@
       </div>
 
     </div>
-  </nav>
+  <a href="#process">Design Process</a>
+</nav>
 
 
   <!-- HERO -->
@@ -1170,7 +1188,53 @@
   </section>
 
 
-  <!-- APPROACH -->
+  
+<section id="process" class="process-case">
+  <div class="container">
+    <div class="eyebrow">DESIGN PROCESS CASE STUDY</div>
+    <h2>From classroom evidence to interactive design: Trig Park</h2>
+    <p class="lede">Trig Park began as a Precalculus amusement-park modeling project. I taught the paper version, observed how students interpreted its representations, analyzed student work through my National Board process, and then redesigned the experience as a simulation. The digital version is not a decorative translation of a worksheet; its interactions respond to specific moments in learner thinking.</p>
+    <div class="process-links"><a class="button button-primary" href="https://janiebeck072-eng.github.io/trig_park/" target="_blank" rel="noopener noreferrer">OPEN TRIG PARK</a></div>
+
+    <div class="process-flow">
+      <div><strong>01 · Frame</strong><span>Define the conceptual goal and authentic context.</span></div>
+      <div><strong>02 · Observe</strong><span>Study hesitation, misconceptions, and learner strategies.</span></div>
+      <div><strong>03 · Design</strong><span>Translate those observations into purposeful interactions.</span></div>
+      <div><strong>04 · Reflect</strong><span>Use evidence to decide what to scaffold or redesign next.</span></div>
+    </div>
+
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-label">Original artifact · Wave Pool</div>
+        <h3>The Sinusoidal Swirl</h3>
+        <div class="artifact"><p>Students reviewed sine and cosine, then built a wave-pool model and explained why their function made sense in context.</p><div class="eq">y = A sin(Bx) + D &nbsp; or &nbsp; y = A cos(Bx) + D</div><p>Amplitude represented wave height, B controlled frequency, and D represented average water level.</p></div>
+      </div>
+      <div class="case-card">
+        <div class="case-label">Original artifact · Ferris Wheel</div>
+        <h3>Pi in the Sky</h3>
+        <div class="artifact"><p>Students selected physical dimensions, identified amplitude, period/frequency and vertical shift, then created and graphed a Ferris-wheel equation.</p><div class="eq">height = A · trig(Bt) + D</div><p>The mathematical parameters had to correspond to features of the ride.</p></div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-label">Learner evidence → design decisions</div>
+      <div class="decision"><div><h3>Context needed to precede calculation.</h3><p>Students could manipulate parameters while still needing support interpreting midline, period, and physical position.</p></div><div class="arrow">→</div><div><h3>Build conceptual checkpoints.</h3><p>The simulation asks learners to identify the pool bottom and interpret the midline as water height before graphing.</p></div></div>
+      <div class="decision"><div><h3>A sketch unlocked the Ferris-wheel model.</h3><p>A learner deciding between sine and cosine reasoned from the boarding position and recognized that starting at minimum height calls for negative cosine.</p></div><div class="arrow">→</div><div><h3>Make that reasoning visible.</h3><p>Trig Park explicitly checks the negative-cosine choice and animates the Ferris wheel so equation and physical motion remain synchronized.</p></div></div>
+      <div class="decision"><div><h3>The coaster could demand more synthesis.</h3><p>The paper task introduced phase shifts and domain restrictions, but a static graph limited how much students could construct.</p></div><div class="arrow">→</div><div><h3>Turn the graph into a design space.</h3><p>Learners now combine multiple trig functions with separate domains to build one piecewise coaster and justify their choices.</p></div></div>
+    </div>
+
+    <div class="case-grid">
+      <div class="case-card"><div class="case-label">National Board insight</div><h3>Design for independence.</h3><p>My analysis identified students' tendency to seek reassurance before trusting their own reasoning. That informs my preference for constrained hints, checkpoints, visual evidence, and opportunities to revise rather than immediately supplying answers.</p></div>
+      <div class="case-card"><div class="case-label">National Board insight</div><h3>Explore → Develop → Apply</h3><p>I use the same learning architecture in interactive design that I use instructionally: give learners something meaningful to notice, provide structure for formalizing the mathematics, and then require them to use it in a consequential model or decision.</p></div>
+    </div>
+
+    <div class="process-quote"><strong>What my teaching background contributes to design:</strong> sustained observation of how real learners interpret prompts, use representations, respond to feedback, collaborate, and revise their thinking. I treat those observations as product-design evidence.</div>
+
+    <div class="case-card"><div class="case-label">What I would test next</div><h3>The prototype is a hypothesis, not an endpoint.</h3><p>I would study which parameter checkpoints trigger the most revisions, whether animation improves transfer between the Ferris-wheel equation and its physical meaning, and how learners construct and debug piecewise coaster segments. Those observations would drive the next iteration.</p></div>
+  </div>
+</section>
+
+<!-- APPROACH -->
 
   <section id="approach">
 
