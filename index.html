@@ -387,6 +387,93 @@
       border-left-color: #43b7a5;
     }
 
+
+    /* PROJECT GROUPS */
+
+    .project-group {
+      margin-top: 34px;
+    }
+
+    .project-group + .project-group {
+      margin-top: 58px;
+    }
+
+    .project-group-header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 18px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .group-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 22px rgba(24, 48, 66, 0.05);
+    }
+
+    .project-group:nth-of-type(1) .group-icon {
+      color: var(--teal);
+      border-color: #abdcd6;
+      background: #edf9f7;
+    }
+
+    .project-group:nth-of-type(2) .group-icon {
+      color: var(--coral);
+      border-color: #f0c8bd;
+      background: #fff3ef;
+    }
+
+    .project-group:nth-of-type(3) .group-icon {
+      color: #6854b8;
+      border-color: #d3c9f0;
+      background: #f3efff;
+    }
+
+    .group-label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .project-group-header h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 1.65rem;
+    }
+
+    .project-group-header p {
+      margin: 5px 0 0;
+      color: var(--navy-soft);
+      max-width: 760px;
+    }
+
+    .project-group .projects-grid {
+      margin-top: 0;
+    }
+
+    .project.group-simulation {
+      border-top-color: var(--coral);
+    }
+
+    .project.group-game {
+      border-top-color: #7c63d8;
+    }
+
+    .project.group-explore {
+      border-top-color: var(--teal);
+    }
+
     /* EVIDENCE FROM PRACTICE */
 
     .evidence-grid {
@@ -658,22 +745,31 @@
       </div>
 
       <h2 class="section-title">
-        Five ways to make mathematics interactive
+        Interactive mathematics across three learning modes
       </h2>
 
       <p class="section-intro">
-        These projects span algebra, probability, geometry, calculus, and fractal geometry
-        while using distinct interaction models — from direct manipulation and simulation
-        to visual investigation, live mathematical modeling, and recursive construction.
+        Rather than organizing this work as a list of topics, I group projects by what
+        learners are asked to <em>do</em>: explore mathematical objects, model dynamic
+        systems, or make strategic decisions inside a game. Across the collection,
+        content ranges from algebra and probability to trigonometry, calculus, and
+        fractal geometry.
       </p>
 
 
-      <div class="projects-grid">
+      
+      <div class="project-group">
+        <div class="project-group-header">
+          <div class="group-icon">↔</div>
+          <div>
+            <div class="group-label">Learning Mode 01</div>
+            <h3>Explore & Manipulate</h3>
+            <p>Learners change mathematical objects directly, observe consequences, and construct rules from visible relationships.</p>
+          </div>
+        </div>
 
-
-        <!-- FUNCTION FACTORY -->
-
-        <article class="project">
+        <div class="projects-grid">
+<article class="project group-explore">
 
           <div class="project-top">
 
@@ -726,11 +822,7 @@
           </a>
 
         </article>
-
-
-        <!-- BEAT THE ODDS -->
-
-        <article class="project">
+<article class="project group-explore">
 
           <div class="project-top">
 
@@ -738,62 +830,6 @@
 
               <div class="project-number">
                 PROJECT 02
-              </div>
-
-              <h3>
-                Beat the Odds
-              </h3>
-
-              <div class="project-subtitle">
-                Probability, simulation, and expected value
-              </div>
-
-            </div>
-
-          </div>
-
-          <p class="project-copy">
-            Learners choose between competing probability machines, collect
-            their own experimental data, scale simulations from 10 to 10,000
-            trials, and investigate why winning more often does not necessarily
-            lead to the greatest expected payoff.
-          </p>
-
-          <div class="tags">
-            <span class="tag">JAVASCRIPT</span>
-            <span class="tag">PROBABILITY</span>
-            <span class="tag">SIMULATION</span>
-            <span class="tag">DECISION MAKING</span>
-          </div>
-
-          <div class="design-note">
-            <strong>Design focus:</strong>
-            The formal expected-value calculation is withheld until learners
-            have generated and interpreted enough evidence to need it.
-          </div>
-
-          <a
-            class="button button-primary"
-            href="https://janiebeck072-eng.github.io/beat-the-odds/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LAUNCH BEAT THE ODDS
-          </a>
-
-        </article>
-
-
-        <!-- SHAPE LAB -->
-
-        <article class="project">
-
-          <div class="project-top">
-
-            <div>
-
-              <div class="project-number">
-                PROJECT 03
               </div>
 
               <h3>
@@ -839,16 +875,12 @@
           </a>
 
         </article>
-
-
-        <!-- TAYLOR TELESCOPE -->
-
-        <article class="project">
+<article class="project group-explore">
 
           <div class="project-top">
             <div>
               <div class="project-number">
-                PROJECT 04
+                PROJECT 03
               </div>
 
               <h3>
@@ -893,16 +925,12 @@
           </a>
 
         </article>
-
-
-        <!-- FRACTAL FORGE -->
-
-        <article class="project">
+<article class="project group-explore">
 
           <div class="project-top">
             <div>
               <div class="project-number">
-                PROJECT 05
+                PROJECT 04
               </div>
 
               <h3>
@@ -948,8 +976,193 @@
           </a>
 
         </article>
+        </div>
+      </div>
 
 
+      <div class="project-group">
+        <div class="project-group-header">
+          <div class="group-icon">∿</div>
+          <div>
+            <div class="group-label">Learning Mode 02</div>
+            <h3>Simulate & Model</h3>
+            <p>Learners use mathematics to represent dynamic systems, generate evidence, and test how parameters change real or simulated behavior.</p>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+<article class="project group-simulation">
+
+          <div class="project-top">
+
+            <div>
+
+              <div class="project-number">
+                PROJECT 05
+              </div>
+
+              <h3>
+                Beat the Odds
+              </h3>
+
+              <div class="project-subtitle">
+                Probability, simulation, and expected value
+              </div>
+
+            </div>
+
+          </div>
+
+          <p class="project-copy">
+            Learners choose between competing probability machines, collect
+            their own experimental data, scale simulations from 10 to 10,000
+            trials, and investigate why winning more often does not necessarily
+            lead to the greatest expected payoff.
+          </p>
+
+          <div class="tags">
+            <span class="tag">JAVASCRIPT</span>
+            <span class="tag">PROBABILITY</span>
+            <span class="tag">SIMULATION</span>
+            <span class="tag">DECISION MAKING</span>
+          </div>
+
+          <div class="design-note">
+            <strong>Design focus:</strong>
+            The formal expected-value calculation is withheld until learners
+            have generated and interpreted enough evidence to need it.
+          </div>
+
+          <a
+            class="button button-primary"
+            href="https://janiebeck072-eng.github.io/beat-the-odds/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LAUNCH BEAT THE ODDS
+          </a>
+
+        </article>
+
+        <article class="project group-simulation">
+
+          <div class="project-top">
+            <div>
+              <div class="project-number">
+                PROJECT 06
+              </div>
+
+              <h3>
+                Trig Park
+              </h3>
+
+              <div class="project-subtitle">
+                Trigonometric modeling through an interactive theme-park design studio
+              </div>
+            </div>
+          </div>
+
+          <p class="project-copy">
+            Learners design a wave pool, construct a piecewise roller coaster from
+            multiple sine and cosine functions, and animate a Ferris wheel whose motion
+            is linked directly to its sinusoidal height model. Parameter checkpoints
+            require learners to connect amplitude, midline, period, phase shift, and
+            domain restrictions to physical features of each ride.
+          </p>
+
+          <div class="tags">
+            <span class="tag">JAVASCRIPT</span>
+            <span class="tag">TRIGONOMETRY</span>
+            <span class="tag">MATHEMATICAL MODELING</span>
+            <span class="tag">ANIMATION</span>
+          </div>
+
+          <div class="design-note">
+            <strong>Design focus:</strong>
+            Students do not manipulate parameters in isolation. Each transformation
+            must be interpreted in context, and the piecewise coaster requires learners
+            to coordinate multiple models into one continuous design.
+          </div>
+
+          <a
+            class="button button-primary"
+            href="https://janiebeck072-eng.github.io/trig_park/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ENTER TRIG PARK
+          </a>
+
+        </article>
+
+        </div>
+      </div>
+
+
+      <div class="project-group">
+        <div class="project-group-header">
+          <div class="group-icon">✦</div>
+          <div>
+            <div class="group-label">Learning Mode 03</div>
+            <h3>Play & Strategize</h3>
+            <p>Learners make consequential decisions inside a game system where feedback, resources, and mathematical accuracy shape progress.</p>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+
+        <article class="project group-game">
+
+          <div class="project-top">
+            <div>
+              <div class="project-number">
+                PROJECT 07
+              </div>
+
+              <h3>
+                The Labyrinth of Trigonovia
+              </h3>
+
+              <div class="project-subtitle">
+                Trigonometric identities through strategy, resource management, and play
+              </div>
+            </div>
+          </div>
+
+          <p class="project-copy">
+            A gamified trigonometry experience where learners navigate an enchanted
+            labyrinth, earn Aura through identity challenges, and manage limited magical
+            resources. Insight reveals hints, Reflection safely checks a proposed answer,
+            Clarity removes distractors, and Knowledge is reserved for the final
+            metacognitive reflection.
+          </p>
+
+          <div class="tags">
+            <span class="tag">JAVASCRIPT</span>
+            <span class="tag">TRIG IDENTITIES</span>
+            <span class="tag">GAME DESIGN</span>
+            <span class="tag">STRATEGIC FEEDBACK</span>
+          </div>
+
+          <div class="design-note">
+            <strong>Design focus:</strong>
+            The game mechanics are instructional rather than ornamental. Limited-use
+            supports require learners to decide when feedback is most valuable, while
+            one-attempt scoring creates meaningful consequences for mathematical choices.
+          </div>
+
+          <a
+            class="button button-primary"
+            href="https://janiebeck072-eng.github.io/labyrinth_of_trigonovia/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ENTER THE LABYRINTH
+          </a>
+
+        </article>
+
+        </div>
       </div>
 
     </div>
