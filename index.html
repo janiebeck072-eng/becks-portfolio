@@ -258,10 +258,6 @@
       border-top: 6px solid var(--gold);
     }
 
-    .project:nth-child(4) {
-      border-top: 6px solid #7c63d8;
-    }
-
     .project-top {
       display: flex;
       justify-content: space-between;
@@ -321,11 +317,6 @@
       color: #9a741b;
     }
 
-    .project:nth-child(4) .tag {
-      background: #eeeaff;
-      color: #5f49b5;
-    }
-
     .design-note {
       margin: 20px 0;
       padding: 18px;
@@ -341,10 +332,6 @@
 
     .project:nth-child(3) .design-note {
       border-left-color: var(--gold);
-    }
-
-    .project:nth-child(4) .design-note {
-      border-left-color: #7c63d8;
     }
 
     /* APPROACH */
@@ -370,6 +357,149 @@
     .approach-card p {
       color: var(--navy-soft);
       margin-bottom: 0;
+    }
+
+
+
+    .project:nth-child(4) {
+      border-top: 6px solid #7c63d8;
+    }
+
+    .project:nth-child(5) {
+      border-top: 6px solid #43b7a5;
+    }
+
+    .project:nth-child(4) .tag {
+      background: #eeeaff;
+      color: #5f49b5;
+    }
+
+    .project:nth-child(5) .tag {
+      background: #e3f8f3;
+      color: #287d70;
+    }
+
+    .project:nth-child(4) .design-note {
+      border-left-color: #7c63d8;
+    }
+
+    .project:nth-child(5) .design-note {
+      border-left-color: #43b7a5;
+    }
+
+    /* EVIDENCE FROM PRACTICE */
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .evidence-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 0 8px 24px rgba(24, 48, 66, 0.05);
+    }
+
+    .evidence-card:nth-child(1) {
+      border-top: 5px solid var(--teal);
+    }
+
+    .evidence-card:nth-child(2) {
+      border-top: 5px solid var(--coral);
+    }
+
+    .evidence-card:nth-child(3) {
+      border-top: 5px solid var(--gold);
+    }
+
+    .evidence-kicker {
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .evidence-card h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 1.35rem;
+    }
+
+    .evidence-card p {
+      color: var(--navy-soft);
+      margin-bottom: 0;
+    }
+
+    .impact-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .impact-stat {
+      background: #f7fafb;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .impact-number {
+      display: block;
+      color: var(--teal);
+      font-size: 1.8rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .impact-label {
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .evidence-wide {
+      margin-top: 18px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+    }
+
+    .evidence-wide h3 {
+      margin-top: 0;
+      color: var(--teal);
+    }
+
+    .evidence-wide p {
+      color: var(--navy-soft);
+    }
+
+    .practice-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .practice-step {
+      border-radius: 14px;
+      padding: 16px;
+      background: #f7fafb;
+      border: 1px solid var(--line);
+    }
+
+    .practice-step strong {
+      display: block;
+      color: var(--coral);
+      margin-bottom: 5px;
     }
 
     /* ABOUT */
@@ -432,8 +562,14 @@
       }
 
       .approach-grid,
-      .about-grid {
+      .about-grid,
+      .evidence-grid,
+      .practice-flow {
         grid-template-columns: 1fr;
+      }
+
+      .impact-stats {
+        grid-template-columns: 1fr 1fr;
       }
 
       .nav-inner {
@@ -461,6 +597,7 @@
       <div class="nav-links">
         <a href="#projects">Projects</a>
         <a href="#approach">Approach</a>
+        <a href="#evidence">Evidence</a>
         <a href="#about">About</a>
       </div>
 
@@ -521,13 +658,13 @@
       </div>
 
       <h2 class="section-title">
-        Four ways to make mathematics interactive
+        Five ways to make mathematics interactive
       </h2>
 
       <p class="section-intro">
-        These projects span algebra, probability, geometry, and calculus while using
-        different interaction models, from direct manipulation and simulation
-        to visual investigation and live mathematical modeling.
+        These projects span algebra, probability, geometry, calculus, and fractal geometry
+        while using distinct interaction models — from direct manipulation and simulation
+        to visual investigation, live mathematical modeling, and recursive construction.
       </p>
 
 
@@ -709,9 +846,7 @@
         <article class="project">
 
           <div class="project-top">
-
             <div>
-
               <div class="project-number">
                 PROJECT 04
               </div>
@@ -723,9 +858,7 @@
               <div class="project-subtitle">
                 Taylor series through live approximation and visual exploration
               </div>
-
             </div>
-
           </div>
 
           <p class="project-copy">
@@ -757,6 +890,61 @@
             rel="noopener noreferrer"
           >
             LAUNCH TAYLOR TELESCOPE
+          </a>
+
+        </article>
+
+
+        <!-- FRACTAL FORGE -->
+
+        <article class="project">
+
+          <div class="project-top">
+            <div>
+              <div class="project-number">
+                PROJECT 05
+              </div>
+
+              <h3>
+                Fractal Forge
+              </h3>
+
+              <div class="project-subtitle">
+                Fractal geometry through recursion, scale, and construction
+              </div>
+            </div>
+          </div>
+
+          <p class="project-copy">
+            Learners investigate self-similarity, recursion, infinite detail, and
+            fractional dimension through a collection of live mathematical tools.
+            They zoom through a Sierpiński construction, generate successive Koch-curve
+            iterations, calculate similarity dimensions, and design their own recursive
+            fractal tree by changing branching, scale, and depth.
+          </p>
+
+          <div class="tags">
+            <span class="tag">JAVASCRIPT</span>
+            <span class="tag">FRACTAL GEOMETRY</span>
+            <span class="tag">RECURSION</span>
+            <span class="tag">GENERATIVE VISUALS</span>
+          </div>
+
+          <div class="design-note">
+            <strong>Design focus:</strong>
+            Abstract ideas such as recursion and fractional dimension become observable
+            consequences of learner-controlled rules. Students change the mathematics
+            first, then use the resulting visual structure to reason about why fractals
+            behave differently from ordinary Euclidean objects.
+          </div>
+
+          <a
+            class="button button-primary"
+            href="https://janiebeck072-eng.github.io/fractal_forge/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ENTER FRACTAL FORGE
           </a>
 
         </article>
@@ -829,6 +1017,157 @@
     </div>
 
   </section>
+
+
+
+
+  <!-- EVIDENCE -->
+
+  <section id="evidence">
+
+    <div class="site-shell">
+
+      <div class="section-label">
+        EVIDENCE FROM PRACTICE
+      </div>
+
+      <h2 class="section-title">
+        Learning design grounded in real learners
+      </h2>
+
+      <p class="section-intro">
+        My interactive work is informed by classroom evidence. I use student thinking,
+        assessment data, and iterative reflection to identify where understanding breaks
+        down, design targeted experiences, and refine instruction around what learners
+        actually need.
+      </p>
+
+
+      <div class="evidence-grid">
+
+        <article class="evidence-card">
+
+          <div class="evidence-kicker">
+            NATIONAL BOARD WORK
+          </div>
+
+          <h3>
+            Design for exploration, choice, and productive struggle
+          </h3>
+
+          <p>
+            As part of my National Board work, I designed a trigonometric amusement-park
+            modeling experience in which learners used Desmos to build wave pools,
+            roller coasters, and Ferris wheels through increasingly complex sine and
+            cosine transformations. I also designed a choice-based trigonometric identity
+            escape room where students selected challenge paths, earned support tools,
+            and learned to persist through non-routine problems.
+          </p>
+
+        </article>
+
+
+        <article class="evidence-card">
+
+          <div class="evidence-kicker">
+            DATA-INFORMED INTERVENTION
+          </div>
+
+          <h3>
+            Diagnose before designing
+          </h3>
+
+          <p>
+            Through targeted PULSE pullouts, I use current class data to identify
+            specific conceptual gaps, create small groups around those needs, and design
+            focused interventions rather than reteaching an entire lesson. This cycle
+            keeps support responsive, timely, and centered on the learner's actual
+            misconception.
+          </p>
+
+        </article>
+
+
+        <article class="evidence-card">
+
+          <div class="evidence-kicker">
+            LEARNING SYSTEMS
+          </div>
+
+          <h3>
+            Build structures that expand access
+          </h3>
+
+          <p>
+            I collaborated with my school and RTI International to develop a First-Gen
+            Framework combining academic intervention, college-readiness supports, and
+            more accessible family communication. I also launched a two-week summer
+            transition program for students preparing to enter Math 171, their first
+            college-level mathematics course.
+          </p>
+
+          <div class="impact-stats">
+
+            <div class="impact-stat">
+              <span class="impact-number">4.6×</span>
+              <span class="impact-label">increase in family attendance at Meet the Teacher Night</span>
+            </div>
+
+            <div class="impact-stat">
+              <span class="impact-number">5</span>
+              <span class="impact-label">consecutive semesters of 100% Math III proficiency</span>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <div class="evidence-wide">
+
+        <h3>
+          A continuous design cycle
+        </h3>
+
+        <p>
+          My National Board reflection work reinforced a process I use across both
+          classroom instruction and interactive content design: understand the learner,
+          make an intentional design choice, observe the resulting thinking, and revise
+          based on evidence.
+        </p>
+
+        <div class="practice-flow">
+
+          <div class="practice-step">
+            <strong>01 • OBSERVE</strong>
+            Notice patterns in student work, misconceptions, confidence, and engagement.
+          </div>
+
+          <div class="practice-step">
+            <strong>02 • DESIGN</strong>
+            Build a representation, sequence, challenge, or support around the learning need.
+          </div>
+
+          <div class="practice-step">
+            <strong>03 • TEST</strong>
+            Put the experience in front of learners and make their reasoning visible.
+          </div>
+
+          <div class="practice-step">
+            <strong>04 • REFINE</strong>
+            Use evidence from performance and interaction to improve the next iteration.
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
 
 
   <!-- ABOUT -->
